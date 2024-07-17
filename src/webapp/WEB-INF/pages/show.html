@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Details</title>
+</head>
+<body>
+<h2>User Details</h2>
+<ul>
+    <li>ID: <span th:text="${users.getid()}"></span></li>
+    <li>Name: <span th:text="${users.name}"></span></li>
+    <li>Surname: <span th:text="${users.surname}"></span></li>
+    <li>Age: <span th:text="${users.age}"></span></li>
+
+</ul>
+<a href="/users">Back to Users</a>
+</body>
+</html>
