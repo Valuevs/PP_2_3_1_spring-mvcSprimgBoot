@@ -12,7 +12,7 @@ import java.util.List;
 public class UserDaoImpl implements UserDao {
 
     @PersistenceContext
-    private final EntityManager em;
+    private  EntityManager em;
 
     @Autowired
     public UserDaoImpl(EntityManager em) {
@@ -22,7 +22,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public List<User> getAllUsers() {
-        return em.createQuery("select u from User u", User.class).getResultList();
+        return em.createQuery("from User", User.class).getResultList();
     }
 
     @Override
@@ -37,11 +37,11 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void update(User user) {
-        em.merge(user);
+        em.merge(em.contains(user) ? user : em.merge(user));
     }
 
     @Override
     public void delete(User user) {
-        em.remove(user);
+        em.remove(em.contains(user) ? user : em.merge(user));
     }
 }
