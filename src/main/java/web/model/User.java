@@ -24,8 +24,7 @@ public class User {
     public User() {
     }
 
-    public User(int id, int age, String name, String surname) {
-        this.id = id;
+    public User(int age, String name, String surname) {
         this.age = age;
         this.name = name;
         this.surname = surname;
@@ -63,15 +62,6 @@ public class User {
         this.surname = surname;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "age=" + age +
-                ", id=" + id +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                '}';
-    }
 
     @Override
     public boolean equals(Object o) {

@@ -1,6 +1,5 @@
 package web.config;
 
-//package hiber.config;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,15 +27,21 @@ import java.util.Properties;
 @EnableTransactionManagement
 @ComponentScan(value = "web")
 public class AppConfig {
+
+    private final Environment env;
+
     @Autowired
-    private Environment env;
+
+    public AppConfig(Environment env) {
+        this.env = env;
+    }
 
 
     @Bean
     public DataSource getDataSource() {
         BasicDataSource dataSource = new BasicDataSource();
-        dataSource.setDriverClassName(env.getProperty("db.driver"));
         dataSource.setUrl(env.getProperty("db.url"));
+        dataSource.setDriverClassName(env.getProperty("db.driver"));
         dataSource.setUsername(env.getProperty("db.username"));
         dataSource.setPassword(env.getProperty("db.password"));
         return dataSource;
@@ -61,7 +66,7 @@ public class AppConfig {
             properties.load(is);
             return properties;
         } catch (IOException e) {
-            throw new IllegalArgumentException("Unable to load hibernate.properties", e);
+            throw new IllegalArgumentException("Unable to load hibernate.properties!!!!!!!!", e);
         }
     }
 

@@ -11,18 +11,13 @@ import java.util.List;
 @Repository
 public class UserDaoImpl implements UserDao {
 
-    @PersistenceContext
-    private  EntityManager em;
 
-    @Autowired
-    public UserDaoImpl(EntityManager em) {
-        this.em = em;
-    }
-
+@PersistenceContext
+    private EntityManager em;
 
     @Override
     public List<User> getAllUsers() {
-        return em.createQuery("from User", User.class).getResultList();
+        return em.createQuery("FROM User ", User.class).getResultList();
     }
 
     @Override
