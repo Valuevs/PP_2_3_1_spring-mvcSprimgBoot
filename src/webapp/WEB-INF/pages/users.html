@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+
+
     <title>User List</title>
+
     <style>
         body {
         <tr th:each="user : ${users}">
@@ -13,11 +17,13 @@
         <td th:text="${user.surname}"></td>
         </tr>}
     </style>
+
 </head>
 <body>
+
 <h1>User List</h1>
 <div class="container">
-    <h1>Table Users</h1>
+    <h1>Создание/Удаление/Изменение данных пользователя</h1>
     <table border="1">
         <thead>
         <tr>
@@ -37,10 +43,10 @@
         <tbody>
     </table>
     <form method="post" action="/addUser">
-        <label for="age_add" >User Age</label>
+        <label for="age_add">User Age</label>
         <input name="age" type="text" id="age_add">
         <br>
-        <label for="name_add" >User Name</label>
+        <label for="name_add">User Name</label>
         <input name="name" type="text" id="name_add">
         <br>
         <label for="surname_add">User Surname</label>
@@ -50,20 +56,20 @@
     </form>
 
     <form method="post" action="/deleteUser">
-        <label for="id_delete" >User ID</label>
+        <label for="id_delete">User ID</label>
         <input name="id" type="text" id="id_delete">
         <br>
         <input type="submit" value="Delete User">
     </form>
     <form method="post" action="/updateUser">
-        <label for="id_update" >User ID</label>
+        <label for="id_update">User ID</label>
         <input name="id" type="text" id="id_update">
         <br>
-        <label for="age_update" >User Age</label>
+        <label for="age_update">User Age</label>
         <input name="age" type="text" id="age_update">
 
         <br>
-        <label for="name_update" >User Name</label>
+        <label for="name_update">User Name</label>
         <input name="name" type="text" id="name_update">
         <br>
         <label for="surname_update">User Surname</label>
@@ -74,4 +80,3 @@
 
 </div>
 </body>
-</html>

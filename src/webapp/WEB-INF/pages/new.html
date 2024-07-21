@@ -20,7 +20,7 @@
 </form>
 </body>
 </html>
-<!--<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
@@ -29,12 +29,11 @@
 <body>
 
 <form th:method="POST" th:action="@{/users/new}" th:object="${user}">
-
     <label for="name">Ввод возраста</label>
-    <input type="text" th:field="*{}" id="age"/>
+    <input type="text" th:field="*{age}" id="age"/>
     <br/>
     <label for="name">Ввод имени</label>
-    <input type="text" th:field="*{}" id="name"/>
+    <input type="text" th:field="*{name}" id="name"/>
     <br/>
     <label for="name">Ввод фамилии</label>
     <input type="text" th:field="*{surname}" id="surname"/>

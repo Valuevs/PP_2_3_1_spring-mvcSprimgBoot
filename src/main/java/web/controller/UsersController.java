@@ -28,9 +28,13 @@ public class UsersController {
     }
 
     @PostMapping("/addUser")
-    public String addUser(@RequestParam("name") String name) {
+    public String addUser(@RequestParam("age") Integer age,
+                          @RequestParam("name") String name,
+                          @RequestParam("surname") String surname) {
         User user = new User();
+        user.setAge(age);
         user.setName(name);
+        user.setSurname(surname);
         userService.save(user);
         return "redirect:/";
     }
