@@ -1,5 +1,6 @@
 package web.config;
 
+import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -32,7 +33,7 @@ public class AppConfig {
 
     @Bean
     public DataSource getDataSource() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName(Objects.requireNonNull(env.getProperty("db.driver")));
         dataSource.setUrl(env.getProperty("db.url"));
         dataSource.setUsername(env.getProperty("db.username"));
